@@ -1,0 +1,19 @@
+body{
+  background-color: burlywood;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.contenedor {
+  margin: auto;
+  text-align: center;
+}
+canvas {
+  border: solid;
+}
+
+.footer {
+  text-align: center;
+}

@@ -11,7 +11,6 @@
 
   self.Board.prototype = {
     get elements() {
-      // var elements = this.bars;
       var elements = this.bars.map(function (bar) {
         return bar;
       });
@@ -21,6 +20,7 @@
   };
 })();
 
+//crear pelota
 (function () {
   self.Ball = function (x, y, radius, board) {
     this.x = x;
@@ -40,6 +40,28 @@
     move: function () {
       this.x += this.speed_x * this.direction;
       this.y += this.speed_y;
+
+      if (this.x <= 10) {
+        this.x = 400;
+        this.y = 200;
+        this.speed_x = -this.speed_x;
+        this.bounce_angle = -this.bounce_angle;
+      }
+      if (this.x >= 790) {
+        this.x = 400;
+        this.y = 200;
+        this.speed_x = -this.speed_x;
+        this.bounce_angle = -this.bounce_angle;
+      }
+
+      if (this.y <= 10) {
+        this.speed_y = -this.speed_y;
+        this.bounce_angle = -this.bounce_angle;
+      }
+      if (this.y >= 390) {
+        this.speed_y = -this.speed_y;
+        this.bounce_angle = -this.bounce_angle;
+      }
     },
     get width() {
       return this.radius * 2;
@@ -121,7 +143,6 @@
       for (let i = this.board.bars.length - 1; i >= 0; i--) {
         var bar = this.board.bars[i];
         if (hit(bar, this.board.ball)) {
-          console.log("sii");
           this.board.ball.collision(bar);
         }
       }
@@ -163,8 +184,8 @@
 })();
 
 var board = new Board(800, 400);
-var bar_2 = new Bar(20, 100, 40, 100, board);
-var bar = new Bar(735, 100, 40, 100, board);
+var bar_2 = new Bar(20, 100, 10, 100, board);
+var bar = new Bar(770, 100, 10, 100, board);
 var canvas = document.getElementById("canvas");
 var board_view = new BoardView(canvas, board);
 var ball = new Ball(350, 100, 10, board);
