@@ -1,9 +1,17 @@
-#Aplicacion de Ping - Pong.
+Aplicacion de Ping - Pong
+--------------------------
 
-Diseñado por: Juan Esteban Osorio Lopera.
+Diseñado por: 
+- Juan Esteban Osorio Lopera.
+
+
+
+
 
 Herramientas:
 
--Html
--Javascript
--Css
+- Html
+
+- Javascript
+
+- Css
